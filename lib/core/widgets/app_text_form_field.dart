@@ -13,6 +13,8 @@ class AppTextFormField extends StatelessWidget {
   final bool? isObsecureText;
   final Widget? suffixIcon;
   final Color? backgroundColor;
+  final Function(String) validator;
+  final TextEditingController? controller;
   const AppTextFormField({
     super.key,
     this.contantPadding,
@@ -24,11 +26,14 @@ class AppTextFormField extends StatelessWidget {
     this.isObsecureText,
     this.suffixIcon,
     this.backgroundColor,
+    required this.validator,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contantPadding ?? EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
@@ -42,6 +47,14 @@ class AppTextFormField extends StatelessWidget {
               borderSide: const BorderSide(color: ColorsManager.lighterGray, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red, width: 1.3),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red, width: 1.3),
+          borderRadius: BorderRadius.circular(16),
+        ),
         hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
@@ -50,6 +63,9 @@ class AppTextFormField extends StatelessWidget {
       ),
       obscureText: isObsecureText ?? false,
       style: TextStyles.font14DarkBlueMedium,
+      validator: (value) {
+        return validator(value!);
+      },
     );
   }
 }
