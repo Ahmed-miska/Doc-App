@@ -9,6 +9,6 @@ void main() async {
   setupGetIt();
   await ScreenUtil.ensureScreenSize();
   runApp(DocApp(
-    appRouter: AppRouter(),
+    appRouter: AppRouter()
   ));
 }
