@@ -9,6 +9,7 @@ class ApiConstants {
   static const String apiBaseUrl = "https://vcare.integration25.com/api/";
 
   static const String login = "auth/login";
+  static const String signup = "auth/register";
 }
 >>>>>>> f02af74c77bc7683e9262a9d3a35e05ee136ee46
 

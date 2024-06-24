@@ -65,7 +65,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(18),
           AppTextFormField(
             hintText: 'Password',
-            isObsecureText: isObscureText,
+            isObscureText: isObscureText,
             controller: context.read<LoginCubit>().passwordController,
             suffixIcon: GestureDetector(
               onTap: () {
