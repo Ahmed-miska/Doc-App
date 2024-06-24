@@ -42,9 +42,7 @@ class _SignupFormState extends State<SignupForm> {
         hasMinLength = AppRegex.hasMinLength(passwordController.text);
       });
     });
-  } 
-
-  
+  }
 
   @override
   Widget build(BuildContext context) {
