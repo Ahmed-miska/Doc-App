@@ -1,10 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f02af74c77bc7683e9262a9d3a35e05ee136ee46
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
