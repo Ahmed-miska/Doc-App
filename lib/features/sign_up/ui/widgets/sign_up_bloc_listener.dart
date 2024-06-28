@@ -14,10 +14,10 @@ class SignupBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignupCubit, SignupState>(
-      listenWhen: (previous, current) => current is Loading || current is Success || current is Error,
+      listenWhen: (previous, current) => current is SignupLoading || current is SignupSuccess || current is Error,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {
+          signupLoading: () {
             showDialog(
               context: context,
               builder: (context) => const Center(
@@ -27,11 +27,11 @@ class SignupBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (signupResponse) {
+          signupSuccess: (signupResponse) {
             context.pop();
             showSuccessDialog(context);
           },
-          error: (error) {
+          signupError: (error) {
             setupErrorState(context, error);
           },
         );
