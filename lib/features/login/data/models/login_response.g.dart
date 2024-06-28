@@ -13,7 +13,7 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
           ? null
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
       status: json['status'] as bool?,
-      code: (json['code'] as num?)?.toInt(),
+      code: json['code'] as int?,
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>

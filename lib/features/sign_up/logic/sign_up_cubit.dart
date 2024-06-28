@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:flutter_complete_project/features/sign_up/logic/sign_up_state.dart';
-
 import '../data/models/sign_up_request_body.dart';
 
 class SignupCubit extends Cubit<SignupState> {
@@ -17,7 +16,7 @@ class SignupCubit extends Cubit<SignupState> {
   final formKey = GlobalKey<FormState>();
 
   void emitSignupStates() async {
-    emit(const SignupState.loading());
+    emit(const SignupState.signupLoading());
     final response = await _signupRepo.signup(
       SignupRequestBody(
         name: nameController.text,
@@ -29,9 +28,9 @@ class SignupCubit extends Cubit<SignupState> {
       ),
     );
     response.when(success: (signUpResponse) {
-      emit(SignupState.success(signUpResponse));
+      emit(SignupState.signupSuccess(signUpResponse));
     }, failure: (error) {
-      emit(SignupState.error(error: error.apiErrorModel.message ?? ''));
+      emit(SignupState.signupError(error: error.apiErrorModel.message ?? ''));
     });
   }
 }
