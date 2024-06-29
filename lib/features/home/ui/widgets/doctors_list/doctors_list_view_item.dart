@@ -2,8 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../data/models/specialization_response_model.dart';
+import '../../../data/models/specialization_response_model.dart';
 
 class DoctorSpecialityListViewItem extends StatelessWidget {
   final Doctors? doctorModel;
